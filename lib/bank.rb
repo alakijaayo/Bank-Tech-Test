@@ -1,7 +1,7 @@
 class Bank
   MINIMUM_BALANCE = 0
 
-  attr_reader :balance
+  attr_reader :balance, :history
 
   def initialize
     @balance = 0
@@ -9,6 +9,7 @@ class Bank
 
   def deposit(money)
     @balance += money
+
   end
 
   def withdraw(money)
