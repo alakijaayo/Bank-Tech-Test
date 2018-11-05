@@ -1,4 +1,5 @@
 class Bank
+  MINIMUM_BALANCE = 0
 
   attr_reader :balance
 
@@ -11,6 +12,7 @@ class Bank
   end
 
   def withdraw(money)
+    fail "Not Enough Funds Available!" if @balance - money < MINIMUM_BALANCE
     @balance -= money
   end
 end

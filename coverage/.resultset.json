@@ -1,0 +1,56 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/Elaine/Projects/Bank-Tech-Test/spec/bank_spec.rb": [
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        2,
+        1,
+        4,
+        null,
+        null,
+        null,
+        1,
+        2,
+        1,
+        1,
+        4,
+        null,
+        null,
+        1,
+        2,
+        null,
+        null,
+        null
+      ],
+      "/Users/Elaine/Projects/Bank-Tech-Test/lib/bank.rb": [
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        6,
+        null,
+        null,
+        1,
+        2,
+        null,
+        null,
+        1,
+        2,
+        1,
+        null,
+        null
+      ]
+    },
+    "timestamp": 1541426764
+  }
+}

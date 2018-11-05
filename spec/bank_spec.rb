@@ -16,7 +16,12 @@ describe Bank do
   describe "#withdraw" do
     it { is_expected.to respond_to(:withdraw).with(1).argument }
     it 'takes away money from a persons bank account' do
+      subject.deposit(20)
       expect{subject.withdraw 10}.to change {subject.balance}.by -10
+    end
+
+    it 'raises an error if limit is exceeded' do
+      expect{subject.withdraw(11)}.to raise_error "Not Enough Funds Available!"
     end
   end
 end
