@@ -12,3 +12,5 @@ Whilst working on the project, I came up with user stories as a good soundboard 
 - As a client, so I can save my money, I would like to make a deposit
 - As a client, so I can get my money from my account, I would like to make a withdraw
 - As a client, so I can know my monthly financial transactions, I would like to view a bank statement
+- As a client, so that I know when transactions were made in my account, I would like to view a timestamp of transactions
+- As a client, so that I know when I am about to go over my limit, I would like a warning informing me I have no available funds
