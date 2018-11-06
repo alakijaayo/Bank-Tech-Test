@@ -23,8 +23,8 @@ Whilst working on the project, I came up with user stories as a good soundboard 
 - In your Terminal, run `irb`
 - For the program to run, you will need to put in `require './lib/bank'` and expect result to be true
 - Once this result is true, you can set up a new Bank Account with whatever name you like. For example `Account = Bank.new`. PLEASE NOTE, you must set whatever you want your bank account to be to = Bank.new
-- To make a deposit in your account, call deposit on your account, for example `Account.deposit(50)`. In this case, 50 will be deposited into your account
-- To make a withdraw in your account, call withdraw on your account, for example `Account.withdraw(10)`. in this case, 10 will be withdrawn from your account.
+- To make a deposit in your account, call deposit on your account, for example `Account.deposit(50)` In this case, 50 will be deposited into your account
+- To make a withdraw in your account, call withdraw on your account, for example `Account.withdraw(10)`. In this case, 10 will be withdrawn from your account.
 - To know the balance of your account, call balance on your account, for example `Account.balance`.
 - To see a full statement of your deposits and withdraws from your account, call show table on your account, for example  `Account.show_table`. This will print out for you a full statement of your bank account.
 - To quit irb, type `quit`
