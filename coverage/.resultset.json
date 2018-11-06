@@ -111,10 +111,6 @@
         1,
         13,
         null,
-        null,
-        1,
-        2,
-        null,
         null
       ],
       "/Users/Elaine/Projects/Bank-Tech-Test/lib/withdraw.rb": [
@@ -124,10 +120,6 @@
         null,
         1,
         13,
-        null,
-        null,
-        1,
-        2,
         null,
         null
       ],
@@ -168,6 +160,6 @@
         null
       ]
     },
-    "timestamp": 1541505135
+    "timestamp": 1541507148
   }
 }

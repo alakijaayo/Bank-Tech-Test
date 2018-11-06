@@ -29,11 +29,11 @@ class Bank
   end
 
   def deposits
-    @money_in.view
+    @money_in.history
   end
 
   def withdraws
-    @money_out.view
+    @money_out.history
   end
 
   def show_table

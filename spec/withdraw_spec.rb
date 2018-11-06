@@ -11,6 +11,6 @@ describe Withdraw do
   it "allows the person view the withdraws they have made" do
     subject.history << -10
     subject.history << -20
-    expect(subject.view).to eq [-10, -20]
+    expect(subject.history).to eq [-10, -20]
   end
 end
