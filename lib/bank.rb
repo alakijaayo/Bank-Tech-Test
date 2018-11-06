@@ -18,14 +18,14 @@ class Bank
   def deposit(money)
     @balance += money
     @money_in.history << money
-    @table << [Date.today, money, '', @balance]
+    @table << [Date.today.strftime("%d/%m/%y"), money, '', @balance]
   end
 
   def withdraw(money)
     fail "Not Enough Funds Available!" if @balance - money < MINIMUM_BALANCE
     @balance -= money
     @money_out.history << -money
-    @table << [Date.today, '', -money, @balance]
+    @table << [Date.today.strftime("%d/%m/%y"), '', -money, @balance]
   end
 
   def deposits
@@ -37,7 +37,7 @@ class Bank
   end
 
   def table
-    table = Terminal::Table.new :title => "Bank Statement", :headings => ['Date', 'Credit', 'Debit', 'Balance'], :rows => @table
+    table = Terminal::Table.new :title => "Bank Statement", :headings => ['Date', 'Credit', 'Debit', 'Balance'], :rows => @table.reverse
     puts table
   end
 end
