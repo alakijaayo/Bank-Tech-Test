@@ -15,13 +15,12 @@ class Bank
   def deposit(money)
     @balance += money
     @money_in.history << money
-
   end
 
   def withdraw(money)
     fail "Not Enough Funds Available!" if @balance - money < MINIMUM_BALANCE
     @balance -= money
-    @money_out.history << -(money)
+    @money_out.history << -money
   end
 
   def deposits
