@@ -33,6 +33,18 @@ describe Bank do
       subject.deposit(10)
       expect(subject.deposits).to eq [10]
     end
+
+    it 'raises an error if the amount deposited is negative' do
+      expect{subject.deposit(-10)}.to raise_error "Please put in correct amount"
+    end
+
+    it 'raises an error is the amount put in is a string' do
+      expect{subject.deposit("Ayo")}.to raise_error "Please put in amount you wish to deposit"
+    end
+
+    it 'raises an error if the amount deposited is 0' do
+      expect{subject.deposit(0)}.to raise_error "minimum deposit must be at least 1"
+    end
   end
 
   describe "#withdraw" do
@@ -50,6 +62,20 @@ describe Bank do
       subject.deposit(20)
       subject.withdraw(10)
       expect(subject.withdraws).to eq [-10]
+    end
+
+    it 'raises an error if the amount withdrawn is negative' do
+      subject.deposit(20)
+      expect{subject.withdraw(-10)}.to raise_error "Please put in correct amount"
+    end
+
+    it 'raises an error if the amount withdrawn is 0' do
+      expect{subject.withdraw(0)}.to raise_error "Cannot withdraw 0"
+    end
+
+    it 'raises an error if the amount put in is a string' do
+      subject.deposit(20)
+      expect{subject.withdraw("Ayo")}.to raise_error "Please put in amount you wish to withdraw"
     end
   end
 end
