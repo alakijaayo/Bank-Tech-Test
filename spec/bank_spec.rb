@@ -20,7 +20,7 @@ describe Bank do
 
     it "stores any deposits made into the bank account" do
       subject.deposit(10)
-      expect(subject.deposits).to include 10
+      expect(subject.deposits).to eq [10]
     end
   end
 
@@ -38,7 +38,7 @@ describe Bank do
     it "stores any withdraws made from the bank account" do
       subject.deposit(20)
       subject.withdraw(10)
-      expect(subject.withdraws).to include -10
+      expect(subject.withdraws).to eq [-10]
     end
   end
 end
