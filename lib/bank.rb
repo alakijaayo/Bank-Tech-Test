@@ -36,7 +36,7 @@ class Bank
     @money_out.view
   end
 
-  def table
+  def show_table
     table = Terminal::Table.new :title => "Bank Statement", :headings => ['Date', 'Credit', 'Debit', 'Balance'], :rows => @table.reverse
     puts table
   end
