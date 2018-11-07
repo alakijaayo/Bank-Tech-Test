@@ -18,13 +18,22 @@ Whilst working on the project, I came up with user stories as a good soundboard 
 
 ## How to Use
 
+### Installing
 - Clone or fork this repository
-- In your Terminal, go to this folder and run `bundle install` to install all necessary gems to run the program
+- run `bundle install`
+
+### Running Program
 - In your Terminal, run `irb`
-- For the program to run, you will need to put in `require './lib/bank'` and expect result to be true
-- Once this result is true, you can set up a new Bank Account with whatever name you like. For example `Account = Bank.new`. PLEASE NOTE, you must set whatever you want your bank account to be to = Bank.new
-- To make a deposit in your account, call deposit on your account, for example `Account.deposit(50)` In this case, 50 will be deposited into your account
-- To make a withdraw in your account, call withdraw on your account, for example `Account.withdraw(10)`. In this case, 10 will be withdrawn from your account.
-- To know the balance of your account, call balance on your account, for example `Account.balance`.
-- To see a full statement of your deposits and withdraws from your account, call show table on your account, for example  `Account.show_table`. This will print out for you a full statement of your bank account.
-- To quit irb, type `quit`
+- `require './lib/bank'`
+- Create account. Example `account = Bank.new`
+- Deposit money. Example `account.deposit(50)`
+- Withdraw money. Example `account.withdraw(10)`
+- To check balance `account.balance`.
+- To see statement `account.show_table`
+
+### Other Features
+- To see last deposit, `account.last_deposit`
+- To see last withdraw, `account.last_withdraw`
+- To view all deposits, `account.deposits`
+- To view all withdraws, `account.withdraws`
+- To quit, `quit`
