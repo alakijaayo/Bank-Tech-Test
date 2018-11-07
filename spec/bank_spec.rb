@@ -1,5 +1,6 @@
 require './lib/bank'
 require 'timecop'
+require 'date'
 
 describe Bank do
 
@@ -32,8 +33,9 @@ describe Bank do
     end
 
     it 'informs you of your last deposit' do
+      Timecop.freeze(Date.parse('07/11/18').strftime("%d/%m/%y"))
       subject.deposit(200)
-      expect{subject.last_deposit}.to include "Your last deposit was 200 on 07/11/18"
+      expect(subject.last_deposit).to eq "Your last deposit was 200 on 07/11/18"
     end
   end
 
@@ -60,6 +62,13 @@ describe Bank do
     it 'raises an error if the amount put in is a string' do
       subject.deposit(20)
       expect{subject.withdraw("Ayo")}.to raise_error "Please put in amount you wish to withdraw"
+    end
+
+    it 'informs you of your last deposit' do
+      Timecop.freeze(Date.parse('07/11/18').strftime("%d/%m/%y"))
+      subject.deposit(200)
+      subject.withdraw(100)
+      expect(subject.last_withdraw).to eq "Your last withdraw was -100 on 07/11/18"
     end
   end
 end

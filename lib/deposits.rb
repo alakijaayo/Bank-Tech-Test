@@ -9,7 +9,7 @@ class Deposits
   end
 
   def last_deposit
-    puts "Your last deposit was #{@history[-1].last} on #{@history[-1].first}"
+    "Your last deposit was #{@history[-1].last} on #{@history[-1].first}"
   end
 
   def show_deposits

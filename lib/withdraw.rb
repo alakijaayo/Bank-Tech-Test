@@ -9,7 +9,7 @@ class Withdraw
   end
 
   def last_withdraw
-    puts "Your last withdraw was #{@history[-1].last} on #{@history[-1].first}"
+    "Your last withdraw was #{@history[-1].last} on #{@history[-1].first}"
   end
 
   def show_withdraws

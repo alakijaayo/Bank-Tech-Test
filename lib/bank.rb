@@ -34,6 +34,7 @@ class Bank
   end
 
   def last_deposit
+    print(@money_in.history)
     @money_in.last_deposit
   end
 
