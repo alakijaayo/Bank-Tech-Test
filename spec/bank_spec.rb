@@ -14,6 +14,13 @@ describe Bank do
     expect(subject.balance).to eq 20
   end
 
+  it "gives the user a list of their transactions" do
+    Timecop.freeze(Date.parse('07/11/18').strftime("%d/%m/%y"))
+    subject.deposit(50)
+    subject.withdraw(30)
+    expect{subject.show_table}.to output("date || credit || debit || balance\n07/11/18 || 50.00 || || 50.00\n07/11/18 || || -30.00 || 20.00\n").to_stdout
+  end
+
   describe "#deposit" do
     it { is_expected.to respond_to(:deposit).with(1).argument }
     it 'adds money to the persons bank account' do

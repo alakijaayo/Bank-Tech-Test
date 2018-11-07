@@ -7,7 +7,7 @@ class Table
   end
 
   def statement
-    puts 'date || credit || debit || balance'
+    puts'date || credit || debit || balance'
     puts self.info
   end
 end
