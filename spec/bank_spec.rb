@@ -3,6 +3,9 @@ require 'timecop'
 require 'date'
 
 describe Bank do
+  before do
+    Timecop.freeze(Date.parse('07/11/18').strftime("%d/%m/%y"))
+  end
 
   it 'shows us the balance of our bank account' do
     expect(subject.balance).to eq 0
@@ -15,7 +18,6 @@ describe Bank do
   end
 
   it "gives the user a list of their transactions" do
-    Timecop.freeze(Date.parse('07/11/18').strftime("%d/%m/%y"))
     subject.deposit(50)
     subject.withdraw(30)
     expect{subject.show_table}.to output("date || credit || debit || balance\n07/11/18 || 50.00 || || 50.00\n07/11/18 || || -30.00 || 20.00\n").to_stdout
@@ -40,7 +42,6 @@ describe Bank do
     end
 
     it 'informs you of your last deposit' do
-      Timecop.freeze(Date.parse('07/11/18').strftime("%d/%m/%y"))
       subject.deposit(200)
       expect(subject.last_deposit).to eq "Your last deposit was 200 on 07/11/18"
     end
@@ -72,7 +73,6 @@ describe Bank do
     end
 
     it 'informs you of your last deposit' do
-      Timecop.freeze(Date.parse('07/11/18').strftime("%d/%m/%y"))
       subject.deposit(200)
       subject.withdraw(100)
       expect(subject.last_withdraw).to eq "Your last withdraw was -100 on 07/11/18"
