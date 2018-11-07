@@ -16,19 +16,17 @@ class Bank
   end
 
   def deposit(money)
-    fail "minimum deposit must be at least 1" if money == MINIMUM_BALANCE
     fail "Please put in amount you wish to deposit" if money.is_a? String
-    fail "Please put in correct amount" if money < MINIMUM_BALANCE
+    fail "Minimum deposit must be at least 1" if money <= 0
     @balance += money
     @money_in.history << money
     @table << [Date.today.strftime("%d/%m/%y"), money, '', @balance]
   end
 
   def withdraw(money)
-    fail "Please put in amount you wish to withdraw" if money.is_a? String 
+    fail "Please put in amount you wish to withdraw" if money.is_a? String
+    fail "Please put in correct amount" if money <= 0
     fail "Not Enough Funds Available!" if @balance - money < MINIMUM_BALANCE
-    fail "Cannot withdraw 0" if money == MINIMUM_BALANCE
-    fail "Please put in correct amount" if money < MINIMUM_BALANCE
     @balance -= money
     @money_out.history << -money
     @table << [Date.today.strftime("%d/%m/%y"), '', -money, @balance]
