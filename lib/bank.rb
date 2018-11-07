@@ -1,18 +1,18 @@
 require './lib/deposits'
 require './lib/withdraw'
-require 'terminal-table'
+require './lib/table'
 require 'date'
 
 class Bank
   MINIMUM_BALANCE = 0
 
-  attr_reader :balance, :money_in, :money_out, :table
+  attr_reader :balance, :money_in, :money_out
 
   def initialize
     @balance = 0
     @money_in = Deposits.new
     @money_out = Withdraw.new
-    @table = []
+    @table = Table.new
   end
 
   def deposit(money)
@@ -20,7 +20,7 @@ class Bank
     fail "Minimum deposit must be at least 1" if money <= 0
     @balance += money
     @money_in.history << money
-    @table << [Date.today.strftime("%d/%m/%y"), money, '', @balance]
+    @table.info << ["#{Date.today.strftime("%d/%m/%y")} || #{"%.2f" % money} || || #{ "%.2f" % @balance}"]
   end
 
   def withdraw(money)
@@ -29,7 +29,7 @@ class Bank
     fail "Not Enough Funds Available!" if @balance - money < MINIMUM_BALANCE
     @balance -= money
     @money_out.history << -money
-    @table << [Date.today.strftime("%d/%m/%y"), '', -money, @balance]
+    @table.info << ["#{Date.today.strftime("%d/%m/%y")} || || #{"%.2f" % -money} || #{"%.2f" % @balance}"]
   end
 
   def deposits
@@ -41,7 +41,6 @@ class Bank
   end
 
   def show_table
-    table = Terminal::Table.new :title => "Bank Statement", :headings => ['Date', 'Credit', 'Debit', 'Balance'], :rows => @table.reverse
-    puts table
+    @table.statement
   end
 end

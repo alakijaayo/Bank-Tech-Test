@@ -12,17 +12,6 @@ describe Bank do
     expect(subject.balance).to eq 20
   end
 
-  it "stores deposits in @table" do
-    subject.deposit(50)
-    expect(subject.table).to eq [["#{Date.today.strftime("%d/%m/%y")}", 50, '', 50]]
-  end
-
-  it "stores withdraws in @table" do
-    subject.deposit(50)
-    subject.withdraw(25)
-    expect(subject.table).to include ["#{Date.today.strftime("%d/%m/%y")}", '', -25, 25]
-  end
-
   describe "#deposit" do
     it { is_expected.to respond_to(:deposit).with(1).argument }
     it 'adds money to the persons bank account' do
